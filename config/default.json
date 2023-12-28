@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://Betelihem:ipwOCGqaxRJEPq5w@mern-shopping.aadelyo.mongodb.net/",
+  "jwtSecret": "sl_myJwtSecret"
+}

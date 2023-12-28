@@ -1,0 +1,51 @@
+import {
+  GET_ITEMS,
+  
+  DELETE_ITEM,
+  ADD_ITEM,
+  ITEMS_LOADING
+} from '../actions/types';
+// import uuid from 'uuid';
+// import { v4 as uuid } f rom 'uuid';
+
+// import { IAction, IItem } from '../../types/interfaces';
+// import { IAction, IItem } from '../types/interfaces';
+
+
+const initialState = {
+  items: [],
+  loading: false
+};
+
+// interface IState {
+//   items: IItem[];
+// }
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default function(state = initialState, action) {
+  switch (action.type) {
+    case GET_ITEMS:
+      return {
+        ...state,  
+        items: action.payload,
+        loading: false
+      };
+    case DELETE_ITEM: 
+      return {
+        ...state,
+        items: state.items.filter(item => item._id !== action.payload)
+      };
+    case ADD_ITEM:
+      return {
+        ...state,
+        items: [action.payload, ...state.items]
+      };
+    case ITEMS_LOADING:
+      return {
+        ...state,
+        loading: true
+      };
+    default:
+      return state;
+  }
+}
